@@ -4,38 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New Future</title>
 <style>
-	#left {
-		stroke-dasharray: 525;
-		stroke-dashoffset: 525;
-	}
-
-	#right {
-		stroke-dasharray: 1000;
-		stroke-dashoffset: 1000;
-	}
-
-	#left,
-	#right {
-		fill: dodgerblue;
-		stroke: dodgerblue;
-		animation-name: draw, stroke, FillIn, FadeOut;
-		animation-duration: 5s, 1.5s, 2s, 3s;
-		animation-delay: 0ms, 4.5s, 5s, 6.5s;
-		animation-timing-function: linear, ease-in-out, ease-in-out;
-		animation-fill-mode: both;
-	}
-
-	#avatar {
-		margin: auto;
-		width: 75vmin;
-		height: 75vmin;
-	}
-
-	#left:hover{
-		stroke-opacity: 1;
-		stroke: #FF8D1D;
-	}
-
 	html,
 	body {
 		margin: 0;
@@ -43,15 +11,66 @@
 		width: 100%;
 		height: 100%;
 	}
-
 	body {
-		animation: FillBlue 2.5s ease-out 9.2s;
-		animation-fill-mode: forwards;
+		-webkit-animation: FillBlue 2.5s ease-out 9.2s;
+		        animation: FillBlue 2.5s ease-out 9.2s;
+		-webkit-animation-fill-mode: forwards;
+		        animation-fill-mode: forwards;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: center;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
 		/* 水平居中 */
-		align-items: center;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		/*垂直居中*/
+	}
+	
+       #left {
+		stroke-dasharray: 525;
+		stroke-dashoffset: 525;
+	}
+	#right {
+		stroke-dasharray: 1000;
+		stroke-dashoffset: 1000;
+	}
+	#left,
+	#right {
+		fill: dodgerblue;
+		stroke: dodgerblue;
+		-webkit-animation-name: draw, stroke, FillIn, FadeOut;
+		        animation-name: draw, stroke, FillIn, FadeOut;
+		-webkit-animation-duration: 5s, 1.5s, 2s, 3s;
+		        animation-duration: 5s, 1.5s, 2s, 3s;
+		-webkit-animation-delay: 0ms, 4.5s, 5s, 6.5s;
+		        animation-delay: 0ms, 4.5s, 5s, 6.5s;
+		-webkit-animation-timing-function: linear, ease-in-out, ease-in-out;
+		        animation-timing-function: linear, ease-in-out, ease-in-out;
+		-webkit-animation-fill-mode: both;
+		        animation-fill-mode: both;
+	}
+	#avatar {
+		margin: auto;
+		width: 75vm;
+		width: 75vmin;
+		height: 75vm;
+		height: 75vmin;
+	}
+
+	#left:hover{
+		stroke-opacity: 1;
+		stroke: #FF8D1D;
+	}
+	@-webkit-keyframes draw {
+		to {
+			stroke-dashoffset: 0;
+		}
 	}
 
 	@keyframes draw {
@@ -60,9 +79,26 @@
 		}
 	}
 
+	@-webkit-keyframes stroke {
+		to {
+			stroke-opacity: 0;
+		}
+	}
+
 	@keyframes stroke {
 		to {
 			stroke-opacity: 0;
+		}
+	}
+
+	@-webkit-keyframes FillIn {
+		from {
+			fill-opacity: 0;
+		}
+		to {
+			/* stroke: #FF8D1D; */
+			fill-opacity: 1;
+			stroke-opacity: 1;
 		}
 	}
 
@@ -77,10 +113,23 @@
 		}
 	}
 
+	@-webkit-keyframes FadeOut {
+		100% {
+			fill: white;
+			stroke-opacity: 0;
+		}
+	}
+
 	@keyframes FadeOut {
 		100% {
 			fill: white;
 			stroke-opacity: 0;
+		}
+	}
+
+	@-webkit-keyframes FillBlue {
+		to {
+			background: dodgerblue;
 		}
 	}
 
