@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="dodgerblue">
 <title>New Future | 新未来</title>
@@ -42,6 +42,8 @@
     footer {
         position: fixed;
         bottom: 1em;
+        margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+        margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
         opacity: .9;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
         color: ghostwhite;
