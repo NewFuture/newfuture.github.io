@@ -1,11 +1,10 @@
 "use strict";
 function checkUA(n){
-  var l = n.language || n.userLanguage; 
-  return !/Mobile/i.test(n.userAgent) && l == "zh-CN";
+  return !/Mobile/i.test(n.userAgent);
 }
 
-function checkTimeZone(){
-  return new Date().getTimezoneOffset() == -480;
+function checkLocale(){
+  return Intl.DateTimeFormat().resolvedOptions().locale == "zh-CN"
 }
 
 function deleleICP(){
@@ -18,7 +17,8 @@ function scaleFooter(x){
   document.getElementsByTagName('footer')[0].style.opacity = x;
 }
 
-if(checkUA(navigator) && checkTimeZone()){
+
+if(checkUA(navigator) && checkLocale()){
   var xhr = new XMLHttpRequest();
   xhr.open("GET","https://ipapi.co/country");
   xhr.send();
